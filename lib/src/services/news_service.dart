@@ -3,8 +3,8 @@ import 'package:news_app/src/models/news_model.dart';
 import 'package:http/http.dart' as http;
 
 
-final _URL_NEWS = 'https://newsapi.org/v2';
-final _API_KEY = '79bbd26fffe046fea3c7127dea58b2bc';
+final String _URL_NEWS = 'https://newsapi.org/v2';
+final String _API_KEY = '79bbd26fffe046fea3c7127dea58b2bc';
 
 class NewsService with ChangeNotifier{
 
