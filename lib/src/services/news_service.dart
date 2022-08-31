@@ -11,8 +11,6 @@ class NewsService with ChangeNotifier{
   List<Article> headlines = [];
 
   NewsService(){
-
-
     this.getTopHeadlines();
   }
 
