@@ -46,10 +46,22 @@ class _TarjetaImagen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: FadeInImage(
-          placeholder: AssetImage('assets/img/giphy.gif'),
-          image: NetworkImage('${noticia.urlToImage}'),
-    ));
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(50),
+          bottomRight: Radius.circular(50),
+        ),
+        child: Container(
+          child: (noticia.urlToImage != null)
+              ? FadeInImage(
+                  placeholder: AssetImage('assets/img/giphy.gif'),
+                  image: NetworkImage('${noticia.urlToImage}'),
+                )
+              : Image(image: AssetImage('assets/img/no-image.png')),
+        ),
+      ),
+    );
   }
 }
 
