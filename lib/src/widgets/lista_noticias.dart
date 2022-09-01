@@ -45,7 +45,11 @@ class _TarjetaImagen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('Hola Mundo'),);
+    return Container(
+        child: FadeInImage(
+          placeholder: AssetImage('assets/img/giphy.gif'),
+          image: NetworkImage('${noticia.urlToImage}'),
+    ));
   }
 }
 
