@@ -21,6 +21,7 @@ class NewsService with ChangeNotifier{
     final uri = Uri.parse(url);
     final resp = await http.get(uri);
 
+
     final newsResponse = NewsResponse.fromJson(resp.body);
     
     this.headlines.addAll(newsResponse.articles);
