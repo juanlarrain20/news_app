@@ -33,7 +33,11 @@ class _Noticia extends StatelessWidget {
           index: index,
         ),
         _TarjetaTitulo(noticia: noticia),
-        _TarjetaImagen(noticia: noticia)
+        _TarjetaImagen(noticia: noticia),
+        _TarjetaBody(noticia: noticia,),
+        _TarjetaBotones(),
+        SizedBox(height: 10,),
+        Divider(),
       ],
     );
   }
@@ -103,7 +107,7 @@ class _TarjetaTopBar extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            '${index + 1}',
+            '${index + 1} ',
             style: TextStyle(color: myTheme.secondaryHeaderColor),
           ),
           Text(
@@ -114,3 +118,47 @@ class _TarjetaTopBar extends StatelessWidget {
     );
   }
 }
+
+class _TarjetaBody extends StatelessWidget {
+  final Article noticia;
+  const _TarjetaBody({Key? key, required this.noticia}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Text('${noticia.description}'), 
+    );
+  }
+}
+
+class _TarjetaBotones extends StatelessWidget {
+  const _TarjetaBotones({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+
+          RawMaterialButton(
+            onPressed: (){},
+            fillColor: myTheme.secondaryHeaderColor,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Icon(Icons.star_border),
+          ),
+          SizedBox(width: 10,),
+          RawMaterialButton(
+            onPressed: (){},
+            fillColor: Colors.blueAccent,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Icon(Icons.more),
+          ),
+
+        ],
+      ),
+    );
+  }
+}
+
