@@ -33,6 +33,7 @@ class NewsService with ChangeNotifier{
     final url = '$_URL_NEWS/top-headlines?apiKey=$_API_KEY&country=us';
     final uri = Uri.parse(url);
     final resp = await http.get(uri);
+    
 
 
     final newsResponse = NewsResponse.fromJson(resp.body);
