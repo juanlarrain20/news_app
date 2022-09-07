@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NewsService())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Material App',
         theme: myTheme,
         home: TabsPage(),

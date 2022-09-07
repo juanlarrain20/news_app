@@ -1,11 +1,49 @@
 import 'package:flutter/material.dart';
-
+import 'package:news_app/src/models/category_model.dart';
+import 'package:news_app/src/services/news_service.dart';
+import 'package:provider/provider.dart';
 
 class Tab2Page extends StatelessWidget {
   const Tab2Page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Expanded(child: _ListaCategorias()),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ListaCategorias extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+    final categories = Provider.of<NewsService>(context).categories;
+
+    return ListView.builder(
+      physics: BouncingScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      itemCount: categories.length,
+      itemBuilder: (BuildContext context, index) {
+        return Padding(
+            padding: EdgeInsets.all(8),
+            child: Column(
+              children: [
+                Icon(categories[index].icon),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(categories[index].name),
+              ],
+            ));
+      },
+    );
   }
 }
