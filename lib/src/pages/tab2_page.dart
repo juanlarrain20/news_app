@@ -32,18 +32,52 @@ class _ListaCategorias extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: categories.length,
       itemBuilder: (BuildContext context, index) {
+
+        final categoryName = categories[index].name;
+
         return Padding(
-            padding: EdgeInsets.all(8),
-            child: Column(
-              children: [
-                Icon(categories[index].icon),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(categories[index].name),
-              ],
-            ));
+              padding: EdgeInsets.all(8),
+              child: Column(
+                children: [
+                  _CategoryButton(category: categories[index]),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text('${categoryName[0].toUpperCase()}${categoryName.substring(1)}'),
+                ],
+              ),
+        );
       },
+    );
+  }
+}
+
+class _CategoryButton extends StatelessWidget {
+  final Category category;
+
+  const _CategoryButton({super.key, required this.category});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        print('${category.name}');
+        final newsService = Provider.of<NewsService>(context, listen: false);
+        newsService.selectedCategory = category.name;
+      },
+      child: Container(
+        width: 40,
+        height: 40,
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white,
+        ),
+        child: Icon(
+          category.icon,
+          color: Colors.black54,
+        ),
+      ),
     );
   }
 }
