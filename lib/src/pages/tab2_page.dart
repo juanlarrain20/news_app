@@ -14,6 +14,8 @@ class Tab2Page extends StatelessWidget {
         body: Column(
           children: [
             Expanded(child: _ListaCategorias()),
+
+            
           ],
         ),
       ),

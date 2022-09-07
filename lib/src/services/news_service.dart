@@ -28,7 +28,7 @@ class NewsService with ChangeNotifier{
 
 
   NewsService(){
-    this.getTopHeadlines();
+    getTopHeadlines();
 
     categories.forEach((element) {
       categoryArticles[element.name] = [];
@@ -44,6 +44,9 @@ class NewsService with ChangeNotifier{
     getArticlesByCategory(value);
     notifyListeners();
   }
+
+  //List<Article> get getArticulosCategoriaSeleccionada 
+  //  => categoryArticles(selectedCategory);
 
 
   getTopHeadlines()async{
