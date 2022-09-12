@@ -21,6 +21,7 @@ class _Tab1PageState extends State<Tab1Page> with AutomaticKeepAliveClientMixin{
       body: (newsService.headlines.length == 0 )
           ? Center(child: CircularProgressIndicator())
           :ListaNoticias(noticias: newsService.headlines)
+          
     );
   }
   
