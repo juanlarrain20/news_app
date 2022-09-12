@@ -45,8 +45,8 @@ class NewsService with ChangeNotifier{
     notifyListeners();
   }
 
-  //List<Article> get getArticulosCategoriaSeleccionada 
-  //  => categoryArticles(selectedCategory);
+  List<Article>? get getArticulosCategoriaSeleccionada 
+    => categoryArticles[selectedCategory];
 
 
   getTopHeadlines()async{
@@ -62,6 +62,7 @@ class NewsService with ChangeNotifier{
     this.headlines.addAll(newsResponse.articles);
     notifyListeners();
   }
+
 
   getArticlesByCategory( String category)async{
 
